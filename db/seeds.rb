@@ -7,12 +7,26 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-puts "Creating fake movies..."
+# puts "Creating fake movies..."
+
+# 20.times do
+#   movie = Movie.create(
+#     title: Faker::Movie.title,
+#     overview: Faker::Quote.famous_last_words,
+#     poster_url: Faker::LoremFlickr.image,
+#     rating: rand(0..5)
+#   )
+# end
 
 require 'json'
 require 'open-uri'
-Movie.destroy_all
+
+
+puts "Creating fake movies..."
+
 Bookmark.destroy_all
+Movie.destroy_all
+
 url = 'https://tmdb.lewagon.com/movie/top_rated'
 movie_serialized = URI.open(url).read
 movies = JSON.parse(movie_serialized)
