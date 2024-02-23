@@ -12,11 +12,13 @@
     <%= "#{bookmark.movie.rating} / 10"%>
 
     <br>
+    <%= bookmark.comment%>
+    <br>
     <%= link_to "Delete bookmark", bookmark_path(bookmark),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
     %>
   </p>
   <%end%>
   <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
-  <%= link_to "Back to list", lists_path %>
+  <%= link_to "Back to list", root_path %>
 </div>
