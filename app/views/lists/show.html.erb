@@ -7,13 +7,16 @@
   <p>
     <%= bookmark.movie.overview%>
     <br>
-    <%= image_tag bookmark.movie.poster_url%>
+    <%= image_tag bookmark.movie.poster_url, class: "img-thumbnail", width: 200%>
     <br>
-    <%= bookmark.movie.rating%>
+    <%= "#{bookmark.movie.rating} / 10"%>
+
     <br>
-    <%= link_to "Delete bookmark", list_path(bookmark),
+    <%= link_to "Delete bookmark", bookmark_path(bookmark),
     data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
     %>
   </p>
   <%end%>
+  <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
+  <%= link_to "Back to list", lists_path %>
 </div>
